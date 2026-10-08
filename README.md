@@ -1,16 +1,42 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎮 ROS Web Joystick Teleop
 
-Currently, two official plugins are available:
+**Lightweight browser joystick for driving any ROS robot from a phone.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![ROS](https://img.shields.io/badge/ROS-22314E?style=for-the-badge&logo=ros&logoColor=white)
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Touch joystick** (nipplejs) → `geometry_msgs/Twist` on a configurable topic (default `/cmd_vel`)
+- **Emergency stop** — publishes an e-stop message and sends repeated zero-velocity commands
+- **Configurable telemetry cards** — choose topic, message type and field path at runtime
+  (defaults: battery `/battery_state`, temperature `/system/temperature`, fan `/system/fan_rpm`)
+- **Auto rosbridge address** — connects to `ws://<page-host>:9090` by default, so serving the page from the robot just works
+
+## 🚀 Getting Started
+
+```bash
+# robot
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml
+
+# this app
+npm install
+npm run dev -- --host     # open from your phone on the same network
+```
+
+## 🛠️ Tech Stack
+
+React · Vite · roslib · nipplejs
+
+---
+
+<div align="center">
+Built by <a href="https://github.com/Bariscompeng">Barış Coşkun</a>
+</div>
